@@ -1844,6 +1844,10 @@ int gnutls_x509_privkey_generate2(gnutls_x509_privkey_t key,
 		gnutls_assert();
 		return GNUTLS_E_INVALID_REQUEST;
 	}
+	if(data_size > 0 && data == NULL) {
+                gnutls_assert();
+                return GNUTLS_E_INVALID_REQUEST;
+	}
 
 	gnutls_pk_params_init(&key->params);
 
